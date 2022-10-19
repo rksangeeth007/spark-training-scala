@@ -1,0 +1,5 @@
+[warn] insecure HTTP request is deprecated 'http://repository.apache.org/snapshots/'; switch to HTTPS or opt-in as ("apache-snapshots" at "http://repository.apache.org/snapshots/").withAllowInsecureProtocol(true)
+[debug] "not up to date. inChanged = true, force = false
+[debug] Updating ProjectRef(uri("file:/Users/s0h09o2/Walmart/Reverse%20Mentoring/Tech%20Deep%20dive/spark-training/"), "spark-training")...
+[debug] Done updating ProjectRef(uri("file:/Users/s0h09o2/Walmart/Reverse%20Mentoring/Tech%20Deep%20dive/spark-training/"), "spark-training")
+[warn] There may be incompatibilities among your library dependencies; run 'evicted' to see detailed eviction warnings.
