@@ -22,7 +22,7 @@ object MovieRecommendationsALS {
     // Create a Map of Ints to Strings, and populate it from u.item.
     var movieNames:Map[Int, String] = Map()
     
-     val lines = Source.fromFile("u.item").getLines()
+     val lines = Source.fromFile("src/main/resources/u.item").getLines()
      for (line <- lines) {
        var fields = line.split('|')
        if (fields.length > 1) {
@@ -54,7 +54,7 @@ object MovieRecommendationsALS {
     println("Loading movie names...")
     val nameDict = loadMovieNames()
  
-    val data = spark.read.textFile("u.data")
+    val data = spark.read.textFile("src/main/resources/u.data")
     
     val ratings = data.map( x => x.split('\t') ).map( x => Rating(x(0).toInt, x(1).toInt, x(2).toFloat) ).toDF()
     

@@ -32,7 +32,7 @@ object LinearRegressionDataFrame {
     // "feature" is the data you are given to make a prediction with. So in this example
     // the "labels" are the first column of our data, and "features" are the second column.
     // You can have more than one "feature" which is why a vector is required.
-    val inputLines = spark.sparkContext.textFile("regression.txt")
+    val inputLines = spark.sparkContext.textFile("src/main/resources/regression.txt")
     val data = inputLines.map(_.split(",")).map(x => (x(0).toDouble, Vectors.dense(x(1).toDouble)))
     
     // Convert this RDD to a DataFrame
