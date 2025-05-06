@@ -23,7 +23,7 @@ object PopularMoviesDataSets {
     // Create a Map of Ints to Strings, and populate it from u.item.
     var movieNames:Map[Int, String] = Map()
     
-     val lines = Source.fromFile("u.item").getLines()
+     val lines = Source.fromFile("src/main/resources/u.item").getLines()
      for (line <- lines) {
        var fields = line.split('|')
        if (fields.length > 1) {
@@ -48,11 +48,11 @@ object PopularMoviesDataSets {
       .builder
       .appName("PopularMovies")
       .master("local[*]")
-      .config("spark.sql.warehouse.dir", "u.item") // Necessary to work around a Windows bug in Spark 2.0.0; omit if you're not on Windows.
+      .config("spark.sql.warehouse.dir", "src/main/resources/u.item") // Necessary to work around a Windows bug in Spark 2.0.0; omit if you're not on Windows.
       .getOrCreate()
-    
+
     // Read in each rating line and extract the movie ID; construct an RDD of Movie objects.
-    val lines = spark.sparkContext.textFile("u.data").map(x => Movie(x.split("\t")(1).toInt))
+    val lines = spark.sparkContext.textFile("src/main/resources/u.data").map(x => Movie(x.split("\t")(1).toInt))
     
     // Convert to a DataSet
     import spark.implicits._
