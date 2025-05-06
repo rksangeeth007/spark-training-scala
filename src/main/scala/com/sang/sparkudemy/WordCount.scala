@@ -18,7 +18,7 @@ object WordCount {
     
     // Read each line of my book into an RDD
     //val input = sc.textFile("book.txt")
-    val input = sc.textFile("book.txt")
+    val input = sc.textFile("src/main/resources/book.txt")
     
     // Split into words separated by a space character
     val words = input.flatMap(x => x.split(" "))

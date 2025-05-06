@@ -18,12 +18,13 @@ object RatingsCounter {
    
     // Load up each line of the ratings data into an RDD
     //Give absolute path of the file.
-     val lines = sc.textFile("file:///infiles/ml-100k/u.data")
+    //val lines = sc.textFile("file:///infiles/ml-100k/u.data")
+     val lines = sc.textFile("infiles/ml-100k/u.data")
     
     // Convert each line to a string, split it out by tabs, and extract the third field.
     // (The file format is userID, movieID, rating, timestamp)
     val ratings = lines.map(x => x.toString().split("\t")(2))
-    
+
     // Count up how many times each value (rating) occurs
     val results = ratings.countByValue()
     
