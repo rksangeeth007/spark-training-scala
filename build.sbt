@@ -3,10 +3,10 @@ name := "spark-training"
 version := "0.1"
 
 //scalaVersion := "2.12.4"
-scalaVersion := "2.13.12"
+scalaVersion := "2.13.16"
 
 //val sparkVersion = "2.4.4"
-val sparkVersion = "3.5.1"
+val sparkVersion = "3.5.5"
 
 resolvers ++= Seq(
   "apache-snapshots" at "https://repository.apache.org/snapshots/"

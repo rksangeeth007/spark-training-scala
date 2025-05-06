@@ -8,7 +8,7 @@ import org.apache.log4j._
 object TotalSpentByCustomer {
   
   /** Convert input data to (customerID, amountSpent) tuples */
-  def extractCustomerPricePairs(line: String) = {
+  def extractCustomerPricePairs(line: String): (Int, Float) = {
     val fields = line.split(",")
     (fields(0).toInt, fields(2).toFloat)
   }
@@ -22,7 +22,7 @@ object TotalSpentByCustomer {
      // Create a SparkContext using every core of the local machine
     val sc = new SparkContext("local[*]", "TotalSpentByCustomer")   
     
-    val input = sc.textFile("customer-orders.csvv")
+    val input = sc.textFile("src/main/resources/customer-orders.csv")
 
     val mappedInput = input.map(extractCustomerPricePairs)
     
